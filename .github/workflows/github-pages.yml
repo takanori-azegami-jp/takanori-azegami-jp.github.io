@@ -18,10 +18,11 @@ jobs:
         run: |
           lighthouse \
             --chrome-flags="--headless" \
-            --output html --output-path ./report.html \
+            --output html --output-path /tmp/report.html \
             'https://takanori-azegami-jp.github.io/'
           mkdir ./public
           cp /tmp/report.html ./public/report.html
+
       - name: Upload result
         uses: actions/upload-artifact@master
         with:
