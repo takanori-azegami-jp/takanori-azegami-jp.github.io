@@ -18,20 +18,11 @@ jobs:
         run: |
           lighthouse \
             --chrome-flags="--headless" \
-            --output html --output-path /tmp/report.html \
+            --output html --output-path ./report.html \
             'https://takanori-azegami-jp.github.io/'
-          mkdir ./public
-          cp /tmp/report.html ./public/report.html
 
       - name: Upload result
         uses: actions/upload-artifact@master
         with:
           name: report
           path: report.html
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          keep_files: true
