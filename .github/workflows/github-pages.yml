@@ -5,6 +5,7 @@ on:
     branches:
       - main
 
+# Lighthouseレポートを出力する
 jobs:
   test:
     runs-on: ubuntu-latest
